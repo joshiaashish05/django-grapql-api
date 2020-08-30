@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>All movies</h1>
+{% if user.is_authenticated %}
+{% if movie.watch %}
+
+{% else %}
+<b>
+{% for movies in allmovies  %}
+<ul>
+  <li>
+    <a href="{% url 'movieapp:viewmovie' movies.id %}">
+      Movie name = {{ movies.title }}<br> Movie release  year :  {{ movies.year }}
+    </a>
+  </li>
+</ul>
+{% endfor %}
+</b>
+{% endif %}
+
+{% else %}
+
+{% for movies in allmovies  %}
+<ul>
+  <li>
+      Movie name = {{ movies.title }}<br> Movie release  year :  {{ movies.year }}
+  </li>
+</ul>
+{% endfor %}
+
+
+{% endif %}
+
+{% endblock %}

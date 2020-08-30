@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br>
+Recommendedmovies
+{% for movie in movie %}
+{% if movie.watch %}
+{% else %}
+<li>
+
+   <a href="{% url 'movieapp:viewmovie'  movie.id  %}">
+  <b>
+  {{ movie.title }}
+  {{ movie.year }}
+  </b>
+  </a>
+</li>
+  {% endif%}
+
+{% endfor %}
+</ul>
+
+
+{% endblock %}

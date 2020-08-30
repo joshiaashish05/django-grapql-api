@@ -1,0 +1,17 @@
+
+{% if user.is_authenticated %}
+
+Login as {{ user.username }}
+  <form action="{% url 'accounts:logoutuser' %}" method="post">
+    {% csrf_token %}
+    <button type="submit"> Logout </button>
+  </form>
+  <a href="{% url 'movieapp:allmovies' %}">All Movies</a><br>
+<a href="{% url 'movieapp:recommendedmovies' %}">Recommended Movies</a><br>
+<a href="{% url 'movieapp:moviewatched' %}">Watched Movie</a>
+{% else %}
+<a href="{% url 'accounts:loginuser' %}">Login</a>
+<a href="{% url 'accounts:signupuser' %}">Signup</a>
+{% endif %}
+
+{%  block content %}{% endblock %}

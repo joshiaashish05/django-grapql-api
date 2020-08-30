@@ -1,0 +1,12 @@
+
+{% block content %}
+If you already Exist then
+<a href="{% url 'accounts:loginuser' %}">Login</a><br>
+
+{{ error }}
+<form method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Signup</button>
+</form>
+{% endblock %}
