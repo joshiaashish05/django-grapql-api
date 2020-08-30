@@ -1,4 +1,4 @@
-
+Main Project Folder is movies 
 step-1) Install in Movie project path
 
  pip install -r requirements.txt
